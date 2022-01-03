@@ -1,0 +1,67 @@
+/* Avis */
+body
+{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 25px 5%;
+    background-image: url("../image/bg/bg_2.jpg");
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+header a{
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    padding: 10px;
+}
+
+header h1{
+    text-align: center;
+}
+
+#principal{
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.row {
+    display: flex;
+}
+
+.col, img {
+    flex: 1;
+    height: 200px;
+    width: 400px;
+    text-align: center;
+    color: white;
+}
+
+h3{
+    margin-left: 6%;
+}
+
+footer{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: #4d2006;
+    /*border-radius: 2rem;
+    margin: 250px 3%;*/
+}
+button{
+    float: right;
+}
+
+label{
+    font-weight: bold;
+}
+
+h2, th{
+    color: rgb(119, 79, 20);
+}
+
+#tableau {
+    background-color: aliceblue;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- En-tête de la page -->
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>ACCUEIL | CONTINENTAL </title>
+
+</head>
+
+<body onload=afficherDate();>
+    <div class="overlay">
+
+        <!-- En-tête de la page -->
+        <header>
+            <div id="logo">
+                <img src="image/logo/Logo.png" alt="logo" />
+            </div>
+            <span id="dateheure"></span>
+        </header>
+
+        <!-- Nav -->
+        <nav>
+            <div class="container">
+                <ul>
+                    <!--<li><a href=" index.html">Accueil</a></li>-->
+                    <li><a href="html/commande.html">Commander</a></li>
+                    <li><a href="html/avis.html">Avis</a></li>
+                    <li><a href="html/formule.html">Formule</a></li>
+                    <li><a href="html/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Contenu de la page -->
+        <main>
+
+            <section>
+                <div class="plat">
+                    <h2 id="texte">Venez dégustez nos spécialités</h2>
+                </div>
+            </section><br>
+
+            <section>
+                <h4>Nos spécialités à tester</h4><br>
+            </section>
+
+            <section class="row">
+
+                <!-- Catégorie Entrées -->
+                <table class="col">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Entrées</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gambas Contienental</td>
+                            <td>13,00€</td>
+                        </tr>
+                        <tr>
+                            <td>Salade de Poulpe</td>
+                            <td>12,00€</td>
+                        </tr>
+                        <tr>
+                            <td>Avocat Crevettes</td>
+                            <td>7,00€</td>
+                        </tr>
+                        <tr>
+                            <td>Filet de Hareng</td>
+                            <td>6,00€</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+
+                <!-- Catégorie Plats de Poissons -->
+                <table class="col">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Plats de Poissons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Morue a Bras</td>
+                            <td>18,00€</td>
+                        </tr>
+                        <tr>
+                            <td>Saumon Grillé</td>
+                            <td>20,00€</td>
+                        </tr>
+                        <tr>
+                            <td>Poulpe Grillé ou Cuit</td>
+                            <td>25,00€</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Catégorie Plats de Viandes -->
+                <table class="col">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Plats de Viandes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Entrecôte Grillée</td>
+                            <td>20,00€</td>
+                        </tr>
+                        <tr>
+                            <td>Côte de boeuf</td>
+                            <td>25,00€</td>
+                        </tr>
+                        <tr>
+                            <td>Brochette de Picanha</td>
+                            <td>25,00€</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <br>
+            </section>
+
+        </main><br>
+    </div>
+
+    <script>
+        function pause(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function afficherDate() {
+            while (true) {
+                await pause(1);
+                var cejour = new Date();
+                var options = { weekday: "long", year: "numeric", month: "long", day: "2-digit" };
+                var date = cejour.toLocaleDateString("fr-FR", options);
+                var heure = ("0" + cejour.getHours()).slice(-2) + ":" + ("0" + cejour.getMinutes()).slice(-2) + ":" + ("0" + cejour.getSeconds()).slice(-2);
+                var dateheure = date + " " + heure;
+                var dateheure = dateheure.replace(/(^\w{1})|(\s+\w{1})/g, lettre => lettre.toUpperCase());
+                document.getElementById('dateheure').innerHTML = dateheure;
+            }
+        }
+        afficherDate();
+    </script>
+
+    <!-- Pied de page -->
+    <footer class="text-center">
+        <div class="text-center p-3">
+            <p>©Copyright 2021 - <span>Arthy/Mailys</span>. Tous droits reversés.</p>
+            <a href="html/propos.html">A propos de nous !</a>
+        </div>
+    </footer>
+</body>
+
+</html>

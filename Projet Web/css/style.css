@@ -1,0 +1,126 @@
+/* Page d'accueil */
+body
+{
+    font-family: 'Rockwell', Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+    margin: 23px 3%;
+    /*background-image: linear-gradient(to right top, #40a9b7, #7fbcd4, #b5cfe7, #e0e5f3, #ffffff);*/
+    /*background-color: rgb(174, 208, 226);*/
+    background-image: url("../image/bg/bg_1.jpg");
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+header, h1{
+    text-align: center;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 45px;
+    color:#000000;
+    height: 150px;
+    padding: 1rem;
+}
+
+#logo, img{
+    position:absolute;
+    left: 35px;
+    height: 91px;
+    width: 236px;
+}
+
+.plat{
+    position: relative;
+    background-image: url('../image/images/plats.jpg');
+    background-size: 75em 110%;
+    height: 380px;
+    text-align: center;
+}
+
+.container, ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+  }
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    font-family: 'Copperplate', Copperplate Gothic Light, fantasy;
+    color: rgb(255, 255, 255);
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+a{
+    color: white;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+    padding: 1em;
+    border: 1px solid black;
+    color: rgb(0, 0, 0);
+    /*text-shadow: -1px 0 rgb(0, 0, 0), 0 1px rgb(0, 0, 0), 1px 0 rgb(0, 0, 0), 0 -1px rgb(0, 0, 0);*/
+}
+
+th{
+    text-align: center;
+} 
+
+span{
+    color: #0f0f0f;
+    font-weight: bold;
+}
+
+#texte{
+    font-size: 35px;
+    color: rgb(250, 250, 250);
+    font-family: 'Copperplate', Copperplate Gothic Light, fantasy;
+    line-height:350px;
+    /*text-shadow: 0.1em 0.1em 0.2em rgb(255, 255, 255);*/
+    text-shadow: -1px 0 rgb(202, 195, 195), 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.overlay {
+    width: 100%;
+    /*max-width: 1140px;
+    max-height: 640px;*/
+    padding: 3rem 2rem;
+    /*align-items: center;*/
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.375);
+    box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+    border-radius:  3px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+#dateheure{
+    color: white;
+    float: right;
+    font-size: 30px;
+}
+
+h4{
+    text-align: center;
+}
+
+footer, p{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    padding: 2rem;
+
+}
+

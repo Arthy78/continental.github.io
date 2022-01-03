@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="../css/commande.css">
+    <title>COMMANDE</title>
+</head>
+
+<body>
+
+    <header>
+        <div id="principal">
+            <a href="../index.html">Revenir à l'Accueil</a>
+        </div>
+        <h1>Passez votre commande </h1>
+    </header>
+
+    <main>
+
+        <div id="page1">
+            <form name="commande" action="#" class="box" id="commande" onsubmit="submitEvent(event)">
+                <label for="nom">Nom :</label><br>
+                <input class="ch" type="text" id="nom" name="nom" maxlength='50' placeholder="Ex.: Dupond"
+                    required><br><br>
+                <label for="prenom">Prénom :</label><br>
+                <input class="ch" type="text" id="prenom" name="prenom" maxlength='20' placeholder="Ex.: Pierre"
+                    required><br><br>
+                <label for="email">Email :</label><br>
+                <input class="ch" type="email" id="email" name="email" placeholder="Ex.: Pierre@gmail.com"
+                    required><br><br>
+
+                <div>
+                    <label>
+                        Mode de Livraison :
+                    </label><br><br>
+                    <div>
+                        <input name="model" id="ch1" type="radio" value="Retrait">Retrait sur place
+                        <input name="model" id="ch2" type="radio" value="Livraison">Livraison
+                    </div>
+                </div><br>
+
+                <div>
+                    <label>
+                        Mode de Paiement :
+                    </label><br><br>
+                    <div>
+                        <input name="modep" id="ch3" type="radio" value="Espece">Espèce
+                        <input name="modep" id="ch4" type="radio" value="Carte Bancaire">Carte Bancaire
+                    </div>
+                </div><br>
+
+                <div>
+                    <label class="entrees" id="entrees" for="entrees1">
+                        Entrées :
+                    </label><br><br>
+                    <div>
+                        <select id="entrees1" name="entrees1" class="ch">
+                            <option value="Gambas Contienental">Gambas Contienental - 13,00€</option>
+                            <option value="Salade de Poulpe">Salade de Poulpe - 12,00€</option>
+                            <option value="Avocat Crevettes">Avocat Crevettes - 7,00€</option>
+                            <option value="Filet de Hareng">Filet de Hareng - 6,00€</option>
+                        </select>
+                    </div>
+                </div><br>
+
+                <div>
+                    <label class="plats" id="plats" for="plats1">
+                        Plats :
+                    </label><br><br>
+                    <div>
+                        <select id="plats1" name="plats1" class="ch">
+                            <optgroup label="Plats de Poissons">
+                                <option value="Morue a Bras">Morue a Bras - 18,00€</option>
+                                <option value="Saumon Grillé">Saumon Grillé - 20,00€</option>
+                                <option value="Poulpe Grillé ou Cuit">Poulpe Grillé ou Cuit - 25,00€</option>
+                            </optgroup>
+                            <optgroup label="Plats de Viandes">
+                                <option value="Entrecôte Grillée">Entrecôte Grillée - 20,00€</option>
+                                <option value="Côte de boeuf">Côte de boeuf - 25,00€</option>
+                                <option value="Brochette de Picanha">Brochette de Picanha - 25,00€</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div><br>
+
+                <button class="btn btn-success btn-space" type="submit" value="Ajouter"
+                    id="envoyer">Ajouter</button>
+                <button class="btn btn-light btn-space" type="reset">Annuler</button><br>
+            </form>
+        </div>
+        <div class="box">
+
+            <table id="tableau">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>Mode de Livraison</th>
+                        <th>Mode de Paiement</th>
+                        <th>Entrée</th>
+                        <th>Plat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main><br>
+
+
+    <script>
+
+        function submitEvent (e) {
+            e.preventDefault();
+            //Récupérer 
+            var nom = document.querySelector("#nom") ;
+            var prenom = document.querySelector("#prenom");
+            var email = document.querySelector("#email");
+
+            var entrees1 = document.querySelector("#entrees1");
+            var plats1 = document.querySelector("#plats1");
+
+            var model = document.querySelector('input[name="model"]:checked');
+            var modep = document.querySelector('input[name="modep"]:checked');
+            
+            var oneFieldOrMoreIsEmpty = nom.value.length === 0 || prenom.value.length === 0 || email.value.length === 0 || entrees1.value.length === 0 || plats1.value.length === 0 || model === null || modep === null;
+            if(!oneFieldOrMoreIsEmpty){
+                    
+                var ligne = document.getElementById("tableau").insertRow(-1);
+
+                var colonne1 = ligne.insertCell(0);
+                colonne1.innerHTML += nom.value;
+
+                var colonne2 = ligne.insertCell(1);
+                colonne2.innerHTML += prenom.value;
+
+                var colonne3 = ligne.insertCell(2);
+                colonne3.innerHTML += email.value;
+
+                var colonne4 = ligne.insertCell(3);
+                colonne4.innerHTML += document.querySelector('input[name="model"]').value;
+
+                var colonne5 = ligne.insertCell(4);
+                colonne5.innerHTML += document.querySelector('input[name="modep"]').value;
+
+                var colonne6 = ligne.insertCell(5);
+                colonne6.innerHTML += document.getElementById("entrees1").value;
+
+                var colonne7 = ligne.insertCell(6);
+                colonne7.innerHTML += document.getElementById("plats1").value;
+
+                //Confirmer
+                //alert("Votre commadne est validée");
+
+                //vider 
+                document.getElementById("nom").value = '';
+                document.getElementById("prenom").value = '';
+                document.getElementById("email").value = '';
+                document.querySelector('input[name="model"]').checked = null;
+                document.querySelector('input[name="modep"]').checked = null;
+                document.getElementById("entrees1").value[0];
+                document.getElementById("plats1").value[0];
+                //Ajout
+            
+        };
+    }
+
+    </script>
+
+    <!-- Pied de page -->
+    <footer class="text-center">
+        <div class="text-center p-3">
+            <p>©Copyright 2021 - <span>Arthy/Mailys</span>. Tous droits reversés.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

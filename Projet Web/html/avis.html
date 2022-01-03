@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../css/avis.css">
+    <title>AVIS</title>
+</head>
+
+<body>
+    <header>
+        <div id="principal">
+            <a href="../index.html">Revenir à l'Accueil</a>
+        </div>
+        <h1>Avis</h1>
+    </header>
+
+    <main>
+        <div id="page1">
+            <section>
+                <form id="com" name="com" class="avis" onsubmit="submitEvent(event)">
+                    <label for="nom">Nom / Prénom :</label><br><br>
+                    <input class="ch" type="text" id="nom" name="nom" maxlength='50' placeholder="Ex.: Dupond"
+                        required><br><br>
+                    <label for="nom">Avis :</label><br><br>
+                    <textarea id="avis" name="avis" rows="10" cols="150"
+                        placeholder="Ajouter un avis..."></textarea><br>
+                    <button class="btn btn-success btn-space" type="submit" value="Ajouter"
+                        id="envoyer">Ajouter</button>
+
+                </form>
+            </section>
+
+            <section>
+                <h2> Voici quelques avis ...</h2><br>
+                <div class="box">
+                    <table id="tableau" border="2">
+                        <thead>
+                            <tr>
+                                <th>Nom / Prénom </th>
+                                <th>Avis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+    </main><br><br>
+    </section>
+    </div>
+
+    <script>
+
+        function submitEvent(e) {
+            e.preventDefault();
+
+            var nom = document.querySelector("#nom");
+            var avis = document.querySelector("#avis");
+
+            var oneFieldOrMoreIsEmpty = nom.value.length === 0 || avis.value.length === 0;
+            if (!oneFieldOrMoreIsEmpty) {
+
+                var ligne = document.getElementById("tableau").insertRow(-1);
+
+                var colonne1 = ligne.insertCell(0);
+                colonne1.innerHTML += nom.value;
+
+                var colonne2 = ligne.insertCell(1);
+                colonne2.innerHTML += avis.value;
+
+                document.getElementById("nom").value = '';
+                document.getElementById("avis").value = '';
+
+            };
+        }
+
+    </script>
+
+    <!-- Pied de page -->
+    <footer class="text-center">
+        <div class="text-center p-3">
+            <p>©Copyright 2021 - <span>Arthy/Mailys</span>. Tous droits reversés.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
